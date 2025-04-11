@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
+import { BASE_URL } from '../utils/constants';
 
 const UserPanel = () => {
   const getCurrentDate = () => {
@@ -61,7 +62,7 @@ const UserPanel = () => {
 
       console.log("Fetching schedule with:", { professorId, day: selectedDay });
 
-      const response = await axios.post('http://localhost:5000/api/v1/user/get', {
+      const response = await axios.post(BASE_URL+'/user/get', {
         professorId,
         day: selectedDay,
       });

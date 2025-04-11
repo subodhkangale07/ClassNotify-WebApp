@@ -7,8 +7,9 @@ import * as XLSX from "xlsx";
 import { FaDownload, FaArrowLeft } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import { toast } from "react-toastify";
+import { BASE_URL } from "../utils/constants";
 
-const BASE_URL = 'http://localhost:5000/api/v1';
+// const BASE_URL = 'http://localhost:5000/api/v1';
 const URL = `${BASE_URL}/tt/create`;
 const GET_SUBJECTS_API = `${BASE_URL}/subject/getAllSubject`;
 const GET_PROFESSORS_API = `${BASE_URL}/user/getAllUser`;
