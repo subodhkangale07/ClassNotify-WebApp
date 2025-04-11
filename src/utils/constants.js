@@ -1,0 +1,13 @@
+const API = 'http://localhost:5000';
+export const USER_API_END_POINT = `${API}/api/v1`;
+export const CREATE_USER_API = 'http://localhost:5000/api/v1/user/add';
+export const DELETE_USER_API = 'http://localhost:5000/api/v1/user/remove';
+export const GET_ALL_USER_API = 'http://localhost:5000/api/v1/user/getAllUser';
+export const GET_ALL_CLASS_API  = 'http://localhost:5000/api/v1/class/getAllClass'
+export const CREATE_CLASS_API ='http://localhost:5000/api/v1/class/add'
+export const DELETE_CLASS_API = 'http://localhost:5000/api/v1/class/remove'
+export const GET_ALL_SUBJECT_API  = 'http://localhost:5000/api/v1/subject/getAllSubject'
+export const CREATE_SUBJECT_API ='http://localhost:5000/api/v1/subject/add'
+export const DELETE_SUBJECT_API = 'http://localhost:5000/api/v1/subject/remove'
+export const GET_ALL_Timetables = USER_API_END_POINT + '/tt/get'
+export const DELETE_TimeTable = USER_API_END_POINT + '/tt/delete/'
