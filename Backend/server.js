@@ -41,31 +41,37 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 //     });
 // })
 
-
-cron.schedule('*/10 * * * * *', async () => {
-    console.log("Running scheduler...");
-    try {
-        const events = await filterEvents();
-
-        for (const event of events) {
-            const email = event.professor.emailId;
-            const title = `Upcoming Lecture Notification: ${event.subject_code}`;
-            const body = `
-                <h2>Lecture Details</h2>
-                <p><strong>Professor:</strong> ${event.professor.name}</p>
-                <p><strong>Subject Code:</strong> ${event.subject_code}</p>
-                <p><strong>Class:</strong> ${event.class}</p>
-                <p><strong>Type:</strong> ${event.type}</p>
-                <p><strong>Room:</strong> ${event.room}</p>
-                <p><strong>Time:</strong> ${event.time}</p>
-                <p><strong>Day:</strong> ${event.day}</p>
-            `;
-
-            await mailSender(email, title, body);
+app.get("/run-cron", (req, res) => {
+    cron.schedule('*/10 * * * *', async () => {
+        console.log("Running scheduler...");
+        try {
+            const events = await filterEvents();
+    
+            for (const event of events) {
+                const email = event.professor.emailId;
+                const title = `Upcoming Lecture Notification: ${event.subject_code}`;
+                const body = `
+                    <h2>Lecture Details</h2>
+                    <p><strong>Professor:</strong> ${event.professor.name}</p>
+                    <p><strong>Subject Code:</strong> ${event.subject_code}</p>
+                    <p><strong>Class:</strong> ${event.class}</p>
+                    <p><strong>Type:</strong> ${event.type}</p>
+                    <p><strong>Room:</strong> ${event.room}</p>
+                    <p><strong>Time:</strong> ${event.time}</p>
+                    <p><strong>Day:</strong> ${event.day}</p>
+                `;
+    
+                await mailSender(email, title, body);
+            }
+    
+        } catch (error) {
+            console.error("Error in scheduler:", error);
         }
+    });
+    res.status.json({
+        success:true,
+        messgae:"Cron Started"
+    });
+  });
 
-    } catch (error) {
-        console.error("Error in scheduler:", error);
-    }
-});
 

@@ -16,7 +16,7 @@ try{
      
     let info = await transporter.sendMail(
         {
-            from:' ClassNotify || ashishbhambure1@gmail.com' ,
+            from:'WCE - ClassNotify (A class reminder application)' ,
             to:email,
             subject:title ,
             html:`
