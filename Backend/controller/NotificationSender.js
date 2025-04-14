@@ -62,6 +62,7 @@ exports.filterEvents = async () => {
             timeZone: "Asia/Kolkata"
         });
         const currentTime = new Date(istDate).getTime();
+        console.log(currentTime);
 
         const currentDay = new Intl.DateTimeFormat("en-US", {
             weekday: "long",
@@ -69,7 +70,7 @@ exports.filterEvents = async () => {
         }).format(new Date());
 
         
-       console.log("Slots :", slots);
+    //    console.log("Slots :", slots);
         slots.forEach((slot) => {
             if (!slot.time || !slot.day) return;
             
@@ -81,10 +82,10 @@ exports.filterEvents = async () => {
             if (slot.day === currentDay) {
                 console.log("CurrentDay --> " ,currentDay);
 
-                if (currentTime >= slotTime15 && currentTime < slotTime15 + 60000) {
+                if (currentTime >= slotTime15 && currentTime < slotTime15 + 10*60000) {
                     events.push({ ...slot, message: "15 minutes before" });
                 }
-                if (currentTime >= slotTime30 && currentTime < slotTime30 + 60000) {
+                if (currentTime >= slotTime30 && currentTime < slotTime30 + 10*60000) {
                     events.push({ ...slot, message: "30 minutes before" });
                 }
             }
