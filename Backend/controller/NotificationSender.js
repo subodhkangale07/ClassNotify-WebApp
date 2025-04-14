@@ -65,15 +65,12 @@ exports.filterEvents = async () => {
         slots.forEach((slot) => {
             if (!slot.time || !slot.day) return;
 
-            const slotTime15 = getNotificationTime(slot.time, 15);
+            // const slotTime15 = getNotificationTime(slot.time, 15);
             const slotTime30 = getNotificationTime(slot.time, 30);
 
-            if (!slotTime15 || !slotTime30) return; // Skip invalid times
+            if (!slotTime30) return; 
 
             if (slot.day === currentDay) {
-                if (currentTime >= slotTime15 && currentTime < slotTime15 + 60000) {
-                    events.push({ ...slot, message: "15 minutes before" });
-                }
                 if (currentTime >= slotTime30 && currentTime < slotTime30 + 60000) {
                     events.push({ ...slot, message: "30 minutes before" });
                 }

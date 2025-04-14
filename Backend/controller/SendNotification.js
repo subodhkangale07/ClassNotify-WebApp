@@ -20,6 +20,7 @@ try{
             to:email,
             subject:title ,
             html:`
+            <img src="https://ibb.co/VWPfGrfp"></img>
             <h2> ${body} </h2>
             ` ,
             
