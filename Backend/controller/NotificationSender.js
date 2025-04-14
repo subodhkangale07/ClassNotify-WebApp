@@ -61,16 +61,18 @@ exports.filterEvents = async () => {
         const currentTime = Date.now();
         const currentDay = new Date().toLocaleString('en-US', { weekday: 'long' });
         
-
+       console.log("Slots :", slots);
         slots.forEach((slot) => {
             if (!slot.time || !slot.day) return;
-
+            
             const slotTime15 = getNotificationTime(slot.time, 15);
             const slotTime30 = getNotificationTime(slot.time, 30);
 
             if (!slotTime15 || !slotTime30) return; // Skip invalid times
 
             if (slot.day === currentDay) {
+                console.log("CurrentDay --> " ,currentDay);
+
                 if (currentTime >= slotTime15 && currentTime < slotTime15 + 60000) {
                     events.push({ ...slot, message: "15 minutes before" });
                 }
