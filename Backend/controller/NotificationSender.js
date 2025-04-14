@@ -58,8 +58,16 @@ exports.filterEvents = async () => {
         // console.log("Processing slots:", slots);
 
         const events = [];
-        const currentTime = Date.now();
-        const currentDay = new Date().toLocaleString('en-US', { weekday: 'long' });
+        const istDate = new Date().toLocaleString("en-US", {
+            timeZone: "Asia/Kolkata"
+        });
+        const currentTime = new Date(istDate).getTime();
+
+        const currentDay = new Intl.DateTimeFormat("en-US", {
+            weekday: "long",
+            timeZone: "Asia/Kolkata"
+        }).format(new Date());
+
         
        console.log("Slots :", slots);
         slots.forEach((slot) => {
