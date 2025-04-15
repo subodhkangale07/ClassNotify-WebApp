@@ -85,7 +85,7 @@ exports.filterEvents = async () => {
                 // if (currentTime >= slotTime15 && currentTime < slotTime15 + 10*60000) {
                 //     events.push({ ...slot, message: "15 minutes before" });
                 // }
-                if (currentTime >= slotTime30 && currentTime < slotTime30 + 10*60000) {
+                if (currentTime >= slotTime30 && currentTime < slotTime30 + 5*60000) {
                     events.push({ ...slot, message: "30 minutes before" });
                 }
             }
