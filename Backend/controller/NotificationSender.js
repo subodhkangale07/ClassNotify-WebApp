@@ -90,6 +90,7 @@ exports.filterEvents = async () => {
                 }
             }
         });
+        // Hello
 
         console.log("Events to notify:", events);
         return events;
