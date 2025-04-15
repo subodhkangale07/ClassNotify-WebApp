@@ -15,7 +15,16 @@ const fetchEvents = async () => {
         }
 
         // console.log("Fetched slots:", response.data.result);
+
+        // const slots = response.data.result.forEach((slot)=>{
+        //     if(slot.day == 'Tuesday'){
+        //         console.log(slot);
+        //     }
+        // })
+
         return response.data.result;
+
+        
     } catch (error) {
         console.error("Error fetching events:", error.message);
         return [];
@@ -25,7 +34,8 @@ const fetchEvents = async () => {
 const getNotificationTime = (eventTime, t) => {
     try {
         if (!eventTime) return null;
-
+        eventTime = eventTime.trim().replace(/\s+/g, ' ');
+        console.log("Event Time " , eventTime);
         const startTime = eventTime.split(' - ')[0];
         const date = new Date();
         const [time, period] = startTime.split(' ');

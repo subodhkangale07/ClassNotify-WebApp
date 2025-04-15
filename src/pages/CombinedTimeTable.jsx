@@ -51,9 +51,9 @@ const CreateCombinedTimetable = () => {
     { id: 4, name: "Fourth-Year (LY)" }
   ];
   const labTimeOptions = [
-    { id: 1, name: " 10:15 AM - 12:15 PM" },
-    { id: 2, name: " 1:15 PM - 3:15 PM" },
-    { id: 3, name: " 3:30 PM - 5:30 PM" }
+    { id: 1, name: "10:15 AM - 12:15 PM" },
+    { id: 2, name: "1:15 PM - 3:15 PM" },
+    { id: 3, name: "3:30 PM - 5:30 PM" }
   ];
   const [activeScheduleType, setActiveScheduleType] = useState("lecture");
   const [selectedClass, setSelectedClass] = useState(classOptions[0].name);

@@ -273,6 +273,7 @@ exports.getAllSlots = async (req, res) => {
           }
         });
       }
+   
       
       // Process labs as well
       if (singleTT.labs && singleTT.labs.days) {
