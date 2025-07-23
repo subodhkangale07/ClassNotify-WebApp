@@ -1,4 +1,3 @@
-````markdown
 # 📚 ClassNotify - Class Reminder App
 
 **ClassNotify** is a modern timetable management and notification system designed for educational institutions. It helps streamline time management for both faculty and students by enabling class schedule management and automated reminders.
@@ -119,6 +118,3 @@ This project is licensed under the **MIT License**.
 ## 👤 Author
 
 [![LinkedIn](https://img.shields.io/badge/Subodh_Kangale-LinkedIn-blue?style=flat\&logo=linkedin)](https://www.linkedin.com/in/subodhkangale07/)
-
-```
-
